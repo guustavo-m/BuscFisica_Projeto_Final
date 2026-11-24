@@ -6,23 +6,26 @@
     "orientation": "portrait",
     "icon": "./assets/logo_buscfisica.png",
     "userInterfaceStyle": "light",
-
     "ios": {
       "supportsTablet": true,
       "icon": "./assets/logo_buscfisica.png"
     },
-
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png",
         "backgroundColor": "#4C0661"
-      }
+      },
+      "package": "com.guustavom.buscfisica"
     },
-
     "web": {
       "favicon": "./assets/logo_buscfisica.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c5e7d4d4-e8f1-4f9f-bc9d-fbc53189a1a0"
+      }
     }
   }
 }
