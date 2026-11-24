@@ -33,18 +33,13 @@ app.get('/health', async (req, res) => {
 app.use('/auth', require('./src/routes/authRoutes'));
 
 const { verificarToken } = require('./src/middleware/authMiddleware');
-const protectedRoutes = {
-  '/topico': './src/routes/topicoRoutes',
-  '/questoes': './src/routes/questoesRoutes',
-  '/dificuldade': './src/routes/dificuldadeRoutes',
-  '/materia': './src/routes/materiaRoutes',
-  '/usuario': './src/routes/usuarioRoutes',
-  '/vestibulares': './src/routes/vestibularesRoutes',
-};
 
-for (const [routePath, routeFile] of Object.entries(protectedRoutes)) {
-  app.use(routePath, verificarToken, require(routeFile));
-}
+app.use('/topico', verificarToken, require('./src/routes/topicoRoutes'));
+app.use('/questoes', verificarToken, require('./src/routes/questoesRoutes'));
+app.use('/dificuldade', verificarToken, require('./src/routes/dificuldadeRoutes'));
+app.use('/materia', verificarToken, require('./src/routes/materiaRoutes'));
+app.use('/usuario', verificarToken, require('./src/routes/usuarioRoutes'));
+app.use('/vestibulares', verificarToken, require('./src/routes/vestibularesRoutes'));
 
 // Respostas completas não são disponibilizadas em uma listagem pública.
 // O gabarito é retornado somente no endpoint autenticado de detalhe da questão.
